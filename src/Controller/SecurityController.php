@@ -44,10 +44,12 @@ class SecurityController extends AbstractController
         $em = $doctrine->getManager();
         $user = new User();
 
+
+
     $form = $this->createForm(UserRegisterType::class,$user);
     $form->handleRequest($request);
     if($form->isSubmitted() && $form->isValid()) {
-        //$em = $this->getDoctrine()->getManager();
+
         $user->setPassword(
             $passwordHasher->hashPassword(
                 $user,
