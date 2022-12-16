@@ -23,7 +23,7 @@
                         <li><a href="{{ path('app_logout') }}">LogOut</a></li>
                     {% else %}
                         <li><a href="{{ path('app_login') }}">Login</a></li>
-                        <li><a href="">Register</a></li>
+                        <li><a href="{{ path('app_register') }}">Register</a></li>
                     {% endif %}
                     {% if is_granted('ROLE_ADMIN') %}
                         <li><a href="{{ path('app_admin') }}">Admin</a></li>
@@ -32,6 +32,15 @@
                 </ul>
             </nav>
         </header>
+
+        {# read and display all flash messages #}
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="flash-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
 
         {% block body %}{% endblock %}
     </body>

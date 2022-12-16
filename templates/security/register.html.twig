@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SecurityController!{% endblock %}
+
+{% block body %}
+    <div class="wrapform">
+        <h1>Inscription</h1>
+
+        {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+
+        {{ form_end(form) }}
+
+    </div>
+{% endblock %}
